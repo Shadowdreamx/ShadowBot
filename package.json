@@ -1,0 +1,17 @@
+{
+  "name": "SHADOWBOT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "moment": "^2.22.2",
+    "moment-duration-format": "^2.2.2"
+  }
+}
