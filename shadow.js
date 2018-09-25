@@ -18,6 +18,10 @@ if (message.content.startsWith(prefix + "berse")) {
       message.channel.send("Berseker, Que Necesitan?");
   }
 
+  if (message.content.startsWith(prefix + "link-sow")) {
+        message.channel.send("https://soulofwolves.wordpress.com/");
+    }
+
 if (message.content.startsWith(prefix + "st")) {
   const moment = require("moment");
   require('moment-duration-format');
@@ -43,6 +47,12 @@ if (message.content.startsWith(prefix + "st")) {
 
   message.channel.send({embed});
 }
+///////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////
+////////comando user \\\\\\\\
 const args = message.content.slice(prefix.length).trim().split(/ +/g);
 const command = args.shift().toLowerCase();
 
@@ -64,7 +74,8 @@ if(command === 'user'){
         .setColor(0x66b3ff)
 
        message.channel.send({ embed });
-    }else{
+    }
+{
       const embed = new Discord.RichEmbed()
       .setThumbnail(userm.avatarURL)
       .setAuthor(userm.username+'#'+userm.discriminator, userm.avatarURL)
@@ -78,7 +89,51 @@ if(command === 'user'){
     }
 
   }
+///////////////////////////////////////////////////////////////////////////////////////
+////Server
+if(command === 'server'){
 
-  
+    var server = message.guild;
+
+    const embed = new Discord.RichEmbed()
+    .setThumbnail(server.iconURL)
+    .setAuthor(server.name, server.iconURL)
+    .addField('Dueño del Servidor', server.owner.user.username+'#'+server.owner.user.discriminator+'', true)
+    .addField('Miembros', server.memberCount, true)
+    .addField('Roles', server.roles.size, true)
+    .setColor(0x66b3ff)
+
+   message.channel.send({ embed });
+
+  }
+
+
+/////comando help\\\
+
+if(message.content.startsWith(prefix + 'help')){
+
+    message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados.');
+    message.author.send('**COMANDOS DE SHADOWBOT**\n```\n'+
+                        '-> '+prefix+'ping           :: Comprueba la latencia del bot y de tus mensajes.\n'+
+                        '-> '+prefix+'play           :: Reproduce auto por youtube.\n'+
+                        '-> '+prefix+'user <@user>   :: Muestra información sobre un usuario mencioando.\n'+
+                        '-> '+prefix+'server         :: Muestra información de un servidor determinado.\n'+
+                        '-> '+prefix+'link-sow     :: Muestra información de una pagina web de soulofwolves.\n'+
+
+
+
+                        '**SHADOWBOT - Servers - guías y de soporte Únete :**\nhttps://discord.gg/BV27bsK');
+
+  }
+///////////////////////////////////////////////////////////////////////////////////////
+//// Bienvenida a miembros nuevos\\\\
+client.on("guildMemberAdd", (member) => {
+   console.log(`Nuevo usuario:  ${member.user.username} se ha unido a ${member.guild.name}.`);
+   var canal = client.channels.get('123456789112455845');
+   canal.send(`${member.user}, bienvenido al servidor pasala bien.`);
+
+});
+////////////////////////////////////////////////////////////////////////////////////////////
+
 });
 client.login(config.token);
