@@ -2,6 +2,13 @@ const Discord = require("discord.js");
 const  client = new Discord.Client();
 const config = require("./config.json");
 
+client.user.setPresence({
+       status: "online",
+       game: {
+           name: "Forever SHADOW",
+           type: "PLAYING"
+       }
+   });
 client.on("ready", () => {
    console.log("Server up!");
 });
