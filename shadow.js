@@ -140,15 +140,5 @@ client.on("guildMemberAdd", (member) => {
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
 
-
-client.user.setPresence({
-       status: "online",
-       game: {
-           name: "Forever SHADOW",
-           type: "PLAYING"
-       }
-   });
-         
-         
 });
 client.login(config.token);
