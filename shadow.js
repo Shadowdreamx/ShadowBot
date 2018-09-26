@@ -5,19 +5,18 @@ const config = require("./config.json");
 client.on("ready", () => {
    console.log("Server up!");
 });
-
-
 var prefix = config.prefix;
 
   client.on("message", (message) => {
     if (!message.content.startsWith(config.prefix)) return;
     if (message.author.bot) return;
 
+    if (message.content.startsWith(prefix + "alola-jnoah")) {
+      message.channel.send("https://78.media.tumblr.com/1ee6f88bbf18e69e5893e59235577437/tumblr_ooib98BHZe1tdblgdo2_500.gif");
+  }
+
   if (message.content.startsWith(prefix + "shadow")) {
     message.channel.send("Shadow, Que Necesitan?");
-}
-     if (message.content.startsWith(prefix + "alola-jnoah")) {
-    message.channel.send("https://78.media.tumblr.com/1ee6f88bbf18e69e5893e59235577437/tumblr_ooib98BHZe1tdblgdo2_500.gif");
 }
 if (message.content.startsWith(prefix + "berse")) {
       message.channel.send("Berseker, Que Necesitan?");
@@ -139,6 +138,57 @@ client.on("guildMemberAdd", (member) => {
 
 });
 ////////////////////////////////////////////////////////////////////////////////////////////
+/////musica\\\\\\
 
+   ////////conectar el bot usando join\\\\\\\\
+let Canalvoz = message.member.voiceChannel;
+
+if(!Canalvoz || Canalvoz.type !== 'voice') {
+    message.channel.send('¡Necesitas unirte a un canal de voz primero!.');
+
+} else if (message.guild.voiceConnection) {
+    message.channel.send('Ya estoy conectado en un canal de voz.');
+
+} else {
+    message.channel.send('Conectando...').then(m => {
+        Canalvoz.join().then(() => {
+            m.edit('Conectado exitosamente.').catch(error => console.log(error));
+
+        }).catch(error => console.log(error));
+
+    }).catch(error => console.log(error));
+
+};
+////////////sacar al bot usando leave\\\\\\\
+
+if (command === 'leave') {
+    let Canalvoz = message.member.voiceChannel;
+    if (!Canalvoz) {
+        message.channel.send('No estoy en un canal de voz.');
+    } else {
+        message.channel.send('Dejando el canal de voz.').then(() => {
+        Canalvoz.leave();
+        }).catch(error => message.channel.send(error));
+    }
+}
+//////////////////reproducir audio de youtube con ytdl-core\\\
+
+if (command === 'play') {
+const ytdl = require('ytdl-core');
+
+if(!Canalvoz) return message.channel.send('¡Necesitas unirte a un canal de voz primero!.');
+if(!args) return message.channel.send('Ingrese un enlace de youtube para poder reproducirlo.');
+
+Canalvoz.join()
+    .then(connection => {
+        const url = ytdl(args.toString(), { filter : 'audioonly' });
+        const dispatcher = connection.playStream(url);
+
+        message.delete();
+        message.channel.send('Reproduciendo ahora: '+ args);
+
+    }).catch(console.error);
+
+}
 });
 client.login(config.token);
