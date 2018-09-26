@@ -123,7 +123,9 @@ if(message.content.startsWith(prefix + 'help')){
                         '-> '+prefix+'user <@user>   :: Muestra información sobre un usuario mencioando.\n'+
                         '-> '+prefix+'server         :: Muestra información de un servidor determinado.\n'+
                         '-> '+prefix+'link-sow     :: Muestra información de una pagina web de soulofwolves.\n'+
-
+                        '-> '+prefix+'Join           :: Conecta el bot al canal de musica.\n'+
+                        '-> '+prefix+'Leave          :: Desconecta el bot del canal de musica.\n'+
+                        '-> '+prefix+'play (Link youtube)          :: Reproduce musica usando link de youtube.\n'+
 
 
                         '**SHADOWBOT - Servers - guías y de soporte Únete :**\nhttps://discord.gg/BV27bsK');
