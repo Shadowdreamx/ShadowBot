@@ -2,10 +2,6 @@ const Discord = require("discord.js");
 const  client = new Discord.Client();
 const config = require("./config.json");
 
-client.on("ready", () => {
-   console.log("Server up!");
-});
-
 client.user.setPresence({
        status: "online",
        game: {
@@ -13,6 +9,11 @@ client.user.setPresence({
            type: "PLAYING"
        }
    });
+
+client.on("ready", () => {
+   console.log("Server up!");
+});
+
 
 var prefix = config.prefix;
 
