@@ -14,6 +14,9 @@ var prefix = config.prefix;
   if (message.content.startsWith(prefix + "shadow")) {
     message.channel.send("Shadow, Que Necesitan?");
 }
+     if (message.content.startsWith(prefix + "alola-jnoah")) {
+    message.channel.send("https://78.media.tumblr.com/1ee6f88bbf18e69e5893e59235577437/tumblr_ooib98BHZe1tdblgdo2_500.gif");
+}
 if (message.content.startsWith(prefix + "berse")) {
       message.channel.send("Berseker, Que Necesitan?");
   }
