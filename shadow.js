@@ -178,7 +178,7 @@ if (command === 'leave') {
 if (command === 'play') {
 const ytdl = require('ytdl-core');
 
-if(!Canalvoz) return message.channel.send('¡Necesitas unirte a un canal de voz primero!.');
+if(!Canalvoz) return;
 if(!args) return message.channel.send('Ingrese un enlace de youtube para poder reproducirlo.');
 
 Canalvoz.join()
