@@ -146,8 +146,7 @@ client.on("guildMemberAdd", (member) => {
 let Canalvoz = message.member.voiceChannel;
 
 if(!Canalvoz || Canalvoz.type !== 'voice') {
-    message.channel.send('¡Necesitas unirte a un canal de voz primero!.');
-
+    
 } else if (message.guild.voiceConnection) {
     message.channel.send('Ya estoy conectado en un canal de voz.');
 
@@ -178,7 +177,7 @@ if (command === 'leave') {
 if (command === 'play') {
 const ytdl = require('ytdl-core');
 
-if(!Canalvoz) return;
+if(!Canalvoz) return message.channel.send('¡Necesitas unirte a un canal de voz primero!.');
 if(!args) return message.channel.send('Ingrese un enlace de youtube para poder reproducirlo.');
 
 Canalvoz.join()
