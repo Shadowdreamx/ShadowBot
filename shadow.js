@@ -131,6 +131,23 @@ if(message.content.startsWith(prefix + 'help')){
                         '**SHADOWBOT - Servers - guías y de soporte Únete :**\nhttps://discord.gg/BV27bsK');
 
   }
+////////////////////////////////////////////////////////////////////////////////////////
+     ///////comando guild\\\\\
+     
+     if(message.content.startsWith(prefix + 'guild')){
+
+    message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados.');
+    message.author.send('**INFORMACION SOBRE LAS GUILDS**\n```\n'+
+                        
+                        '-> '+prefix+'Lideres Soul of Wolves   :: Berseker - Navochan17.\n'+
+                        '-> '+prefix+'Lideres Demonz           :: Ultron - Tonabi - Nero.\n'+
+                        '-> '+prefix+'Lideres Titanes          :: Jnoah - Lilyxz - Baizon.\n'+
+                        
+                        '-> '+prefix+'Officers Soul of Wolves  :: AtomicAl - Celery - Dark2018 - Javnu - kempachy - MarshetA - ratzu - Sanscomic - ShadowdreamX - Zicrin.\n'+
+                             
+     
+     
+                        }     
 ///////////////////////////////////////////////////////////////////////////////////////
 //// Bienvenida a miembros nuevos\\\\
 client.on("guildMemberAdd", (member) => {
