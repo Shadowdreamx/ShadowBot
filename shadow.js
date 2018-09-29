@@ -111,43 +111,44 @@ if(command === 'server'){
 
   }
 
+  ////////////////////////////////////////////////////////////////////////////////////////
+       ///////comando guild\\\\\
 
+       if(message.content.startsWith(prefix + 'guild')){
+
+      message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados.');
+      message.author.send('**INFORMACION SOBRE Silver Sanctuary**\n```\n'+
+                          '-> '+prefix+'Lideres Silver Sanctuary   :: Berseker - Navochan17 - Ultron - Tonabi - Nero - Jnoah - Lilyxz - Baizon.\n'+
+                          '-> \n'+
+                          '-> \n'+
+                          '-> '+prefix+'Officers   :: AtomicAl - Celery - Dark2018 - Javnu - kempachy - MarshetA - Cayini - Chaosknigth - DJWOLF - hellsing177 - Kristyan - KuroroL.\n'+
+                          '-> '+prefix+'Officers   :: ratzu - Sanscomic - ShadowdreamX - Zicrin - TemorOscuro - ucont - Bearted - Francojava - Gnirvin - wizzely - Agusi0\n'+
+
+
+                          '**Servers Silver Sanctuary:**\n https://discord.gg/PJdEWHs - https://discord.gg/BV27bsK - https://discord.gg/vyyXkeC');
+
+                          }
+
+////////////////////////////////////////////////////////////////////////////////////
 /////comando help\\\
 
 if(message.content.startsWith(prefix + 'help')){
 
     message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados.');
     message.author.send('**COMANDOS DE SHADOWBOT**\n```\n'+
-                        '-> '+prefix+'ping           :: Comprueba la latencia del bot y de tus mensajes.\n'+
-                        '-> '+prefix+'play           :: Reproduce auto por youtube.\n'+
-                        '-> '+prefix+'user <@user>   :: Muestra información sobre un usuario mencioando.\n'+
-                        '-> '+prefix+'server         :: Muestra información de un servidor determinado.\n'+
-                        '-> '+prefix+'link-sow     :: Muestra información de una pagina web de soulofwolves.\n'+
-                        '-> '+prefix+'Join           :: Conecta el bot al canal de musica.\n'+
-                        '-> '+prefix+'Leave          :: Desconecta el bot del canal de musica.\n'+
-                        '-> '+prefix+'play (Link youtube)          :: Reproduce musica usando link de youtube.\n'+
+                        '-> '+prefix+'guild                         :: Muestra informacion sobre la guild.\n'+
+                        '-> '+prefix+'play                          :: Reproduce auto por youtube.\n'+
+                        '-> '+prefix+'user <@user>        :: Muestra información sobre un usuario mencioando.\n'+
+                        '-> '+prefix+'server                      :: Muestra información de un servidor determinado.\n'+
+                        '-> '+prefix+'link-sow                  :: Muestra información de una pagina web de soulofwolves.\n'+
+                        '-> '+prefix+'Join                          :: Conecta el bot al canal de musica.\n'+
+                        '-> '+prefix+'Leave                       :: Desconecta el bot del canal de musica.\n'+
+                        '-> '+prefix+'play(Link youtube)   :: Reproduce musica usando link de youtube.\n'+
 
 
-                        '**SHADOWBOT - Servers - guías y de soporte Únete :**\nhttps://discord.gg/BV27bsK');
+                        '**SHADOWBOT**\n');
 
   }
-////////////////////////////////////////////////////////////////////////////////////////
-     ///////comando guild\\\\\
-     
-     if(message.content.startsWith(prefix + 'guild')){
-
-    message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados.');
-    message.author.send('**INFORMACION SOBRE LAS GUILDS**\n```\n'+
-                        
-                        '-> '+prefix+'Lideres Soul of Wolves   :: Berseker - Navochan17.\n'+
-                        '-> '+prefix+'Lideres Demonz           :: Ultron - Tonabi - Nero.\n'+
-                        '-> '+prefix+'Lideres Titanes          :: Jnoah - Lilyxz - Baizon.\n'+
-                        
-                        '-> '+prefix+'Officers Soul of Wolves  :: AtomicAl - Celery - Dark2018 - Javnu - kempachy - MarshetA - ratzu - Sanscomic - ShadowdreamX - Zicrin.\n'+
-                             
-     
-     
-                        }     
 ///////////////////////////////////////////////////////////////////////////////////////
 //// Bienvenida a miembros nuevos\\\\
 client.on("guildMemberAdd", (member) => {
@@ -163,7 +164,8 @@ client.on("guildMemberAdd", (member) => {
 let Canalvoz = message.member.voiceChannel;
 
 if(!Canalvoz || Canalvoz.type !== 'voice') {
-    
+
+
 } else if (message.guild.voiceConnection) {
     message.channel.send('Ya estoy conectado en un canal de voz.');
 
@@ -206,7 +208,11 @@ Canalvoz.join()
         message.channel.send('Reproduciendo ahora: '+ args);
 
     }).catch(console.error);
-
 }
+
+/////////////////////////////////////////////////////////////////////////////
+///////avatar\\\\\\\\\\\\\\\
+
+
 });
 client.login(config.token);
