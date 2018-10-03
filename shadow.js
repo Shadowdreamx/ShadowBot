@@ -11,7 +11,7 @@ var prefix = config.prefix;
     if (!message.content.startsWith(config.prefix)) return;
     if (message.author.bot) return;
 
-    if (message.content.startsWith(prefix + "alola-jnoah")) {
+    if (message.content.startsWith(prefix + "alola")) {
       message.channel.send("https://78.media.tumblr.com/1ee6f88bbf18e69e5893e59235577437/tumblr_ooib98BHZe1tdblgdo2_500.gif");
   }
 
@@ -213,6 +213,24 @@ Canalvoz.join()
 /////////////////////////////////////////////////////////////////////////////
 ///////avatar\\\\\\\\\\\\\\\
 
+if (message.content.startsWith(prefix +"torneo" )){
+    const embed = new Discord.RichEmbed()
+    .setTitle("Hola Amigos Hoy les traigo un Torneo para celebrar la Unión de Nuestras Guild")
+    .setAuthor(message.author.username, message.author.avatarURL)
+    .setColor(0x0957e7)
+    .setDescription("Fecha - 13/14 de Octubre.")
+    .setFooter("Nota : cualquier wall disfrazado sera motivo de expulsion", client.user.avatarURL)
+    .setImage(message.author.avatarURL)
+    .setThumbnail(message.author.avatarURL)
+    .setTimestamp()
+    .addField("Reglas",
+      "Solo 2 Walls por equipo (cualquier wall disfrazado sera motivo de expulsion), 1 legendario por Team")
+    .addField("Costo de entrada", "50k", true)
+    .addBlankField(true)
+    .addField("Premio", "1.000.000 (solo ganador)", true);
+
+    message.channel.send({embed});
+}
 
 });
 client.login(config.token);
